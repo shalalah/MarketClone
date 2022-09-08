@@ -1,7 +1,3 @@
 @import "reset.css";
 /* 글꼴 */
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-.App {
-    background-color: skyblue;
-}
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');

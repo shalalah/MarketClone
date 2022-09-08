@@ -1,0 +1,187 @@
+/* css 초기화 */
+@import "../reset.css";
+
+.small_pop_up {
+    display: block;
+    position: relative;
+    text-align: center;
+    min-width: 1050px;
+    border-bottom: 0px;
+    background: rgb(95, 0, 128);
+    text-align: center;
+    font-size: 14px;
+    line-height: 42px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.header-container {
+    width: 100%;
+}
+
+.header_wrap {
+    height: 64px;
+    width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+    padding-top: 36px;
+}
+
+.sign_wrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    height: 35px;
+    top: 0px;
+    right: 0px;
+}
+.sign_up > a {
+    text-decoration: none;
+    font-size: 12px;
+}
+.login > a,
+.center > a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #333;
+}
+.sign_wrap .sign_up {
+    color: rgb(95, 0, 128);
+    cursor: pointer;
+    width: 43px;
+    height: 14px;
+}
+.sign_wrap .sign_up::after {
+    background-color: rgb(217, 217, 217);
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 13px;
+    margin: 0 12px;
+}
+.sign_wrap .login {
+    width: 32px;
+    height: 14px;
+    margin-left: 23px;
+}
+.sign_wrap .login::after {
+    background-color: rgb(217, 217, 217);
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 13px;
+    margin: 0 12px;
+}
+.sign_wrap .question {
+    width: 56px;
+    height: 35px;
+    margin-left: 23px;
+    position: relative;
+    line-height: 33px;
+}
+/* .sign_wrap img {
+    width: 7px;
+    height: 7px;
+} */
+.moreBtn {
+    background-image: url(../assets/Header/more_btn.webp);
+    width: 8px;
+    height: 5px;
+    background-size: cover;
+    background-position: center center;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 1px;
+}
+.logo_wrap {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+}
+.logo_image {
+    display: flex;
+    align-items: center;
+}
+.logo_wrap .logo_fonts {
+    display: flex;
+    align-items: center;
+}
+.logo_wrap .logo_fonts .font_btn1 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    color: rgb(95, 0, 128);
+    font-weight: 500;
+    margin-left: 20px;
+}
+.logo_wrap .logo_fonts .font_btn1::after {
+    background-color: rgb(226, 226, 226);
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 14px;
+    margin-top: 5px;
+    margin-left: 11px;
+}
+
+.logo_wrap .logo_fonts .font_btn2 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    color: rgb(181, 181, 181);
+    font-weight: 500;
+    margin-left: 20px;
+    position: relative;
+}
+.logo_wrap .logo_fonts .font_btn2:hover {
+    color: rgb(95, 0, 128);
+}
+.logo_wrap .logo_fonts img {
+    margin-bottom: 5px;
+}
+
+.search_wrap {
+    border: 1px solid rgb(95, 0, 128);
+    border-radius: 6px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    height: 48px;
+    left: 355px;
+    top: 45px;
+    padding-left: 14px;
+  }
+  .search_wrap .find_input input {
+    border: none;
+    font-size: 16px;
+    font-family: "Noto Sans KR", sans-serif;
+    width: 300px;
+    margin-left: 5px;
+  }
+  .search_wrap .find_input 
+  input:focus {outline:none;}
+  
+  .icons_wrap {
+    width: 148px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    top: 53px;
+    right: -4px;
+  }
+  .icons_wrap .icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 20px;
+  }
+  

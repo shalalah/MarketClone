@@ -1,14 +1,23 @@
-import Product from "./component/Product";
-import { dummy } from "./dummy";
+// import react from "react";
+import { Route, Switch} from "react-router-dom";
+// import styled from "styled-components";
 import './App.css';
+import Header from "./component/Header";
+import Category from "./component/Category";
+import Main from "./pages/Main";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 function App() {
   return (
     <div className="App">
-      <Product />
-      {dummy.map((item,index) => (
-        <Product key={item.id} img={item.src} alt={item.alt} title={item.title} />
-      ))}
+      <Header />
+      <Category />
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/SignUp" component={SignUp} />
+        <Route exact path="/LogIn" component={LogIn} />
+      </Switch>
     </div>
   );
 }

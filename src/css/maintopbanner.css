@@ -1,0 +1,60 @@
+@import "../reset.css";
+/* 배너 */
+.MainTopBanner {
+  min-width: 1050px;
+  overflow: hidden;
+}
+.swiper-container {
+  position: relative;
+  max-width: 1900px;
+  margin: 0 auto 40px;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.MainTopBanner .swiper-slide {
+  cursor: pointer;
+}
+.MainTopBanner .swiper-slide .banner_image {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+}
+.MainTopBanner .swiper-pagination {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  width: 55px;
+  height: 23px;
+  bottom: 20px;
+  line-height: 23px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 12px;
+  z-index: 1;
+  left: 80%;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+.swiper-container:hover .swiper-button-prev {
+    display: block;
+    background-image: url(../assets/buttons/main_banner_post_btn.svg);
+    width: 52px;
+    height: 52px;
+    transform: translate(50%, -50%) rotate(180deg);
+    left: 5%;
+}
+.swiper-container:hover .swiper-button-next {
+    display: block;
+    background-image: url(../assets/buttons/main_banner_post_btn.svg);
+    width: 52px;
+    height: 52px;
+    transform: translate(50%, -50%);
+    right: 10%
+}
