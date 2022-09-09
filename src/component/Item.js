@@ -1,38 +1,71 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import '../css/item.css';
 import BasketIcon from "../assets/items/basket_icon.svg";
 
-export default function Item({img,alt,title,sale_price,discount}) {
+import { dummy } from '../dummy';
+
+export default function Item() {
     return (
-        <Item1>
-            <ItemImg1>
-            <Link to="/Detail">
-                <img src={img} alt={alt} style={{height: "320px"}}/>
-            </Link>
-            <AddBasket>
-                <img src={BasketIcon} alt="장바구니 추가" />
-            </AddBasket>
-            </ItemImg1>
-            <ItemInfo>
-                {title}
-                <InfoDetail>
-                    <ProductPrice>
-                        <Discount><span>{discount}</span></Discount>
-                        <SalePrice>{sale_price}</SalePrice>
-                    </ProductPrice>
-                </InfoDetail>
-            </ItemInfo>
-        </Item1>
+            <RecommendItems>
+            <Swiper
+                slidesPerView={4}
+                spaceBetween={30}
+                slidesPerGroup={4}
+                loop={false}
+                loopFillGroupWithBlank={true}
+                navigation={true}
+                modules={[ Navigation ]}
+                className="swiper-container1"
+                >
+            <div className='swiper-wrapper1'>
+                {dummy.map((item,index) => (
+                <SwiperSlide>
+                <Item1>
+                    <ItemImg1>
+                    <Link to="/Detail">
+                        <img src={item.src} alt={item.alt} style={{height: "320px"}}/>
+                    </Link>
+                    <AddBasket>
+                        <img src={BasketIcon} alt="장바구니 추가" />
+                    </AddBasket>
+                    </ItemImg1>
+                    <ItemInfo>
+                        {item.title}
+                        <InfoDetail>
+                            <ProductPrice>
+                                <Discount><span>{item.discount}</span></Discount>
+                                <SalePrice>{item.sale_price}</SalePrice>
+                            </ProductPrice>
+                        </InfoDetail>
+                    </ItemInfo>
+                </Item1>
+                </SwiperSlide>
+                ))}
+            </div>
+            </Swiper>
+            </RecommendItems>
     );
 };
-const Item1 = styled.div`
-width: 249px;
-cursor: pointer;
-`
 
+const RecommendItems = styled.div`
+    width: 1050px;
+    margin: 0px auto;
+    margin-left: auto;
+    overflow: hidden;
+`
+const Item1 = styled.div`
+    width: 265px;
+    cursor: pointer;
+`
 const ItemImg1 = styled.div`
     display: flex;
+    width: 249px;
     height: 320px;
     position: relative;
 `
