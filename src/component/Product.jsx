@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React, { Fragment } from "react";
 
 const Product = (props) => {
     // const onClickBtn = () => {
@@ -6,7 +6,7 @@ const Product = (props) => {
     // }
     return (
         <Fragment>
-            <img src={props.img} alt={props.alt} style={{width:"200px"}} />
+            <img src={props.img} alt={props.alt} style={{ width: "200px" }} />
             <div>{props.title}</div>
         </Fragment>
     );
