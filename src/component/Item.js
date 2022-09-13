@@ -15,88 +15,85 @@ import { dummy } from "../dummy";
 export default function Item() {
     return (
         <RecommendItem>
-            <div className="recommend_list">
-                <div className="recommend_title">
-                    <div className="product_Q">
-                        <span className="product_q">이 상품 어때요?</span>
-                    </div>
-                </div>
-                <div className="recommend_items">
-                    <Swiper
-                        slidesPerView={4}
-                        spaceBetween={30}
-                        slidesPerGroup={4}
-                        loop={false}
-                        loopFillGroupWithBlank={true}
-                        navigation={{
-                            clickable: true,
-                            nextEl: ".swiper-button-next",
-                            prevEl: ".swiper-button-prev",
-                        }}
-                        modules={[Navigation]}
-                        className="swiper-container"
-                    >
-                        <div className="swiper-wrapper">
-                            {dummy.map((item, index) => (
-                                <SwiperSlide key={item.id}>
+            <div className="recommend_items">
+                <Swiper
+                    slidesPerView={4}
+                    spaceBetween={30}
+                    slidesPerGroup={4}
+                    loop={false}
+                    loopFillGroupWithBlank={true}
+                    navigation={{
+                        clickable: true,
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    }}
+                    modules={[Navigation]}
+                    className="swiper-container"
+                >
+                    <div className="swiper-wrapper">
+                        {dummy.map((item, index) => (
+                            <SwiperSlide key={item.id}>
+                                <ItemImg1>
                                     <Link to="/Detail">
-                                        <ItemImg1>
-                                            <img
-                                                src={item.src}
-                                                alt={item.alt}
-                                                style={{
-                                                    height: "320px",
-                                                    width: "249px",
-                                                }}
-                                            />
-                                            <AddBasket>
-                                                <img
-                                                    src={BasketIcon}
-                                                    alt="장바구니 추가"
-                                                />
-                                            </AddBasket>
-                                        </ItemImg1>
+                                        <img
+                                            src={item.src}
+                                            alt={item.alt}
+                                            style={{
+                                                height: "320px",
+                                                width: "249px",
+                                            }}
+                                        />
                                     </Link>
-                                    <ItemInfo>
-                                        {item.title}
-                                        <InfoDetail>
-                                            <ProductPrice>
-                                                <Discount>
-                                                    <span>{item.discount}</span>
-                                                </Discount>
-                                                <SalePrice>
-                                                    {item.sale_price}
-                                                </SalePrice>
-                                            </ProductPrice>
-                                        </InfoDetail>
-                                    </ItemInfo>
-                                </SwiperSlide>
-                            ))}
-                        </div>
-                    </Swiper>
-                    <button className="swiper-button-next"></button>
-                    <button className="swiper-button-prev"></button>
-                </div>
+                                    <AddBasket>
+                                        <img
+                                            src={BasketIcon}
+                                            alt="장바구니 추가"
+                                        />
+                                    </AddBasket>
+                                </ItemImg1>
+                                <ItemInfo>
+                                    <ItemName>{item.title}</ItemName>
+                                    <InfoDetail>
+                                        <ProductPrice>
+                                            <Discount>{item.discount}</Discount>
+                                            <SalePrice>
+                                                {item.sale_price}
+                                            </SalePrice>
+                                        </ProductPrice>
+                                    </InfoDetail>
+                                </ItemInfo>
+                            </SwiperSlide>
+                        ))}
+                    </div>
+                </Swiper>
+                <button className="swiper-button-next"></button>
+                <button className="swiper-button-prev"></button>
             </div>
         </RecommendItem>
     );
 }
-const RecommendItem = styled.div``;
+const RecommendItem = styled.div`
+    width: 1050px;
+    margin: 0px auto;
+    padding-bottom: 40px;
+`;
 const ItemImg1 = styled.div`
     display: flex;
     position: relative;
-    width: 265px;
+    width: 249px;
+    height: 320px;
 `;
 
 const AddBasket = styled.button`
     position: absolute;
     bottom: 5px;
-    right: 8px;
+    right: 5px;
     background-color: transparent;
     border: none;
 `;
 const ItemInfo = styled.div`
     position: relative;
+    width: 249px;
     padding: 14px 10px 0px 0px;
     margin-bottom: 8px;
 `;
@@ -107,9 +104,9 @@ const InfoDetail = styled.div`
 const ProductPrice = styled.div`
     display: flex;
 `;
-const Discount = styled.div`
+const Discount = styled.span`
     color: red;
-    margin-right: 7px;
+    margin-right: 4px;
     font-size: 16px;
     font-weight: 800;
     line-height: 1.5;
@@ -119,4 +116,9 @@ const SalePrice = styled.div`
     font-size: 16px;
     font-weight: 800;
     line-height: 1.5;
+`;
+const ItemName = styled.h3`
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 400;
 `;

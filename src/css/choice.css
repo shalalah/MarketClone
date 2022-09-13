@@ -1,0 +1,31 @@
+@import "../reset.css";
+.btnActive {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 22px;
+    margin: 0px 5px 20px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 16px;
+    background-color: rgb(247, 247, 247);
+    color: rgb(51, 51, 51);
+    border: none;
+    cursor: pointer;
+}
+
+.btnActive:hover {
+    background-color: rgb(247, 243, 248);
+    color: rgb(95, 0, 128);
+}
+.CatBtnSelect {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 22px;
+    margin: 0px 5px 20px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 16px;
+    background-color: rgb(95, 0, 128);
+    color: rgb(255, 255, 255);
+    border: none;
+}
