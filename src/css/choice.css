@@ -1,5 +1,6 @@
 @import "../reset.css";
-.btnActive {
+
+.CatBtn {
     display: block;
     padding: 10px 20px;
     border-radius: 22px;
@@ -12,11 +13,11 @@
     border: none;
     cursor: pointer;
 }
-
-.btnActive:hover {
+.CatBtn:hover {
     background-color: rgb(247, 243, 248);
     color: rgb(95, 0, 128);
 }
+
 .CatBtnSelect {
     display: block;
     padding: 10px 20px;
