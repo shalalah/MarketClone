@@ -1,12 +1,12 @@
-// import react from "react";
 import { Route, Switch } from "react-router-dom";
-// import styled from "styled-components";
+
 import "./App.css";
 import Header from "./component/Header";
 import Category from "./component/Category";
 import Main from "./pages/Main";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Detail from "./pages/Detail";
 
 function App() {
     return (
@@ -15,6 +15,7 @@ function App() {
             <Category />
             <Switch>
                 <Route exact path="/" component={Main} />
+                <Route exact path="/Detail" component={Detail} />
                 <Route exact path="/SignUp" component={SignUp} />
                 <Route exact path="/LogIn" component={LogIn} />
             </Switch>
