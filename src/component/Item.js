@@ -9,7 +9,6 @@ import "../css/item.css";
 import BasketIcon from "../assets/items/basket_icon.svg";
 
 import { Navigation } from "swiper";
-
 import { dummy } from "../dummy";
 
 export default function Item() {

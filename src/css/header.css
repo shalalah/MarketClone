@@ -37,11 +37,7 @@
     top: 0px;
     right: 0px;
 }
-.sign_up > a {
-    text-decoration: none;
-    font-size: 12px;
-}
-.login > a,
+.sign_wrap > a,
 .center > a {
     text-decoration: none;
     font-size: 12px;
@@ -50,8 +46,6 @@
 .sign_wrap .sign_up {
     color: rgb(95, 0, 128);
     cursor: pointer;
-    width: 43px;
-    height: 14px;
 }
 .sign_wrap .sign_up::after {
     background-color: rgb(217, 217, 217);
@@ -62,8 +56,6 @@
     margin: 0 12px;
 }
 .sign_wrap .login {
-    width: 32px;
-    height: 14px;
     margin-left: 23px;
 }
 .sign_wrap .login::after {
@@ -81,10 +73,6 @@
     position: relative;
     line-height: 33px;
 }
-/* .sign_wrap img {
-    width: 7px;
-    height: 7px;
-} */
 .moreBtn {
     background-image: url(../assets/Header/more_btn.webp);
     width: 8px;
@@ -159,18 +147,19 @@
     left: 355px;
     top: 45px;
     padding-left: 14px;
-  }
-  .search_wrap .find_input input {
+}
+.search_wrap .find_input input {
     border: none;
     font-size: 16px;
     font-family: "Noto Sans KR", sans-serif;
     width: 300px;
     margin-left: 5px;
-  }
-  .search_wrap .find_input 
-  input:focus {outline:none;}
-  
-  .icons_wrap {
+}
+.search_wrap .find_input input:focus {
+    outline: none;
+}
+
+.icons_wrap {
     width: 148px;
     display: flex;
     position: absolute;
@@ -178,10 +167,9 @@
     justify-content: space-between;
     top: 53px;
     right: -4px;
-  }
-  .icons_wrap .icon {
+}
+.icons_wrap .icon {
     width: 36px;
     height: 36px;
     margin-right: 20px;
-  }
-  
+}

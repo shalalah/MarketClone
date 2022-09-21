@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ProductDetail() {
+export default function ProductDetail(props) {
+    console.log(props.dummy);
     return (
         <ProductDetail1>
-            <DetailItemImg></DetailItemImg>
+            제품상세내용
+            <DetailItemImg>
+                {/* <img src={props.dummy.src} alt={props.dummy.alt} /> */}
+            </DetailItemImg>
             <DetailItemInfo></DetailItemInfo>
         </ProductDetail1>
     );
@@ -17,8 +21,6 @@ const ProductDetail1 = styled.div`
 const DetailItemImg = styled.img`
     width: 430px;
     height: 552px;
-    background: url(./image/detail_page_img/detail_item_1.jpeg) 50% 50%
-        no-repeat;
 `;
 const DetailItemInfo = styled.div`
     width: 560px;
