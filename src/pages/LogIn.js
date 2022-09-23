@@ -34,8 +34,8 @@ export default function LogIn() {
                     />
                 </PutPw>
                 <FindWrap>
-                    <button>아이디찾기</button>
-                    <button>비밀번호 찾기</button>
+                    <IdFind>아이디찾기</IdFind>
+                    <PwFind>비밀번호 찾기</PwFind>
                 </FindWrap>
                 <LoginBtn>
                     <button disabled={Allow}>로그인</button>
@@ -62,9 +62,27 @@ const Title = styled.div`
 const LogInWrapper = styled.div`
     margin: 0 auto;
     width: 340px;
+    text-align: center;
 `;
-const PutId = styled.div``;
+const PutId = styled.div`
+    margin-top: 30px;
+`;
 const PutPw = styled.div``;
-const FindWrap = styled.div``;
-const LoginBtn = styled.div``;
-const SignupBtn = styled.div``;
+const FindWrap = styled.div`
+    margin-top: 10px;
+`;
+const LoginBtn = styled.div`
+    margin-bottom: 5px;
+`;
+const SignupBtn = styled.div`
+    margin-bottom: 5px;
+`;
+const IdFind = styled.button`
+    border: none;
+    background-color: none;
+    margin-bottom: 10px;
+`;
+const PwFind = styled.button`
+    border: none;
+    background-color: none;
+`;
