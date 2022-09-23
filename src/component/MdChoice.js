@@ -6,7 +6,7 @@ import "../css/choice.css";
 import Item from "./Item";
 import MDSwiper from "./MDSwiper";
 
-export default function MdChoice() {
+export default function MdChoice(props) {
     const [btnActive, setBtnActive] = useState("");
 
     const toggleActive = (e) => {
@@ -33,7 +33,7 @@ export default function MdChoice() {
                     ))}
                 </MDCategory>
             </MdCategoryList>
-            {btnActive ? <MDSwiper /> : <Item />}
+            {btnActive ? <MDSwiper /> : <Item dummy={props.dummy} />}
             <MoreList>
                 <Cat1>생수·음료·우유·커피 전체보기</Cat1>
             </MoreList>

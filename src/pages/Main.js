@@ -7,6 +7,8 @@ import SpecialDeal from "../component/SpecialDeal";
 import MdChoice from "../component/MdChoice";
 import LineBanner1 from "../assets/banner/line_banner_1.jpeg";
 
+import { dummy } from "../dummy";
+
 export default function Main() {
     return (
         <div className="Main-container">
@@ -18,7 +20,7 @@ export default function Main() {
                     </RecommendQ>
                 </RecommendTitle>
             </SwiperTitleWrap>
-            <Item />
+            <Item dummy={dummy} />
             <LineBanner>
                 <LineBannerImg src={LineBanner1} />
             </LineBanner>
@@ -31,7 +33,7 @@ export default function Main() {
                     <SubQ>평일 냉장고를 부탁해</SubQ>
                 </RecommendTitle>
             </SwiperTitleWrap>
-            <Item />
+            <Item dummy={dummy} />
             <SwiperTitleWrap>
                 <RecommendTitle>
                     <RecommendQ>
@@ -39,7 +41,7 @@ export default function Main() {
                     </RecommendQ>
                 </RecommendTitle>
             </SwiperTitleWrap>
-            <MdChoice />
+            <MdChoice dummy={dummy} />
         </div>
     );
 }

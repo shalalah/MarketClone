@@ -9,9 +9,13 @@ import "../css/item.css";
 import BasketIcon from "../assets/items/basket_icon.svg";
 
 import { Navigation } from "swiper";
-import { dummy } from "../dummy";
+// import { dummy } from "../dummy";
 
-export default function Item() {
+export default function Item(props) {
+    // const dummy_list = props.dummy;
+    // const dummy_list = props.dummy;
+    // console.log(dummy_list);
+
     return (
         <RecommendItem>
             <div className="recommend_items">
@@ -30,7 +34,44 @@ export default function Item() {
                     className="swiper-container"
                 >
                     <div className="swiper-wrapper">
-                        {dummy.map((item, index) => (
+                        {props.dummy &&
+                            props.dummy.map((item, idx) => (
+                                <SwiperSlide key={item.id}>
+                                    <ItemImg1>
+                                        <Link to="/Detail">
+                                            <img
+                                                src={item.src}
+                                                alt={item.alt}
+                                                style={{
+                                                    height: "320px",
+                                                    width: "249px",
+                                                }}
+                                            />
+                                        </Link>
+                                        <AddBasket>
+                                            <img
+                                                src={BasketIcon}
+                                                alt="장바구니 추가"
+                                            />
+                                        </AddBasket>
+                                    </ItemImg1>
+                                    <ItemInfo>
+                                        <ItemName>{item.title}</ItemName>
+                                        <InfoDetail>
+                                            <ProductPrice>
+                                                <Discount>
+                                                    {item.discount}
+                                                </Discount>
+                                                <SalePrice>
+                                                    {item.sale_price}
+                                                </SalePrice>
+                                            </ProductPrice>
+                                        </InfoDetail>
+                                    </ItemInfo>
+                                </SwiperSlide>
+                            ))}
+
+                        {/* {props.dummy.map((item, idx) => (
                             <SwiperSlide key={item.id}>
                                 <ItemImg1>
                                     <Link to="/Detail">
@@ -62,7 +103,7 @@ export default function Item() {
                                     </InfoDetail>
                                 </ItemInfo>
                             </SwiperSlide>
-                        ))}
+                        ))} */}
                     </div>
                 </Swiper>
                 <button className="swiper-button-next"></button>
