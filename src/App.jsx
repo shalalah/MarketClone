@@ -7,8 +7,9 @@ import Main from "./pages/Main";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Detail from "./pages/Detail";
-import ProductDetail from "./component/ProductDetail";
+import ProductDetail from "./component/detail/ProductDetail";
 import Footer from "./component/Footer";
+import BestItem from "./component/category/BestItem";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />
+                <Route path="/BestItem" element={<BestItem />}></Route>
                 <Route path="/SignUp/*" element={<SignUp />} />
                 <Route path="/LogIn/*" element={<LogIn />} />
                 <Route path="/Detail/*" element={<Detail />}>

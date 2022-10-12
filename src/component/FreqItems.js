@@ -24,8 +24,8 @@ export default function Item(props) {
                     loopFillGroupWithBlank={true}
                     navigation={{
                         clickable: true,
-                        nextEl: ".swiper-item-button-next",
-                        prevEl: ".swiper-item-button-prev",
+                        nextEl: ".swiper-freq-button-next",
+                        prevEl: ".swiper-freq-button-prev",
                     }}
                     modules={[Navigation]}
                     className="swiper-container"
@@ -38,10 +38,6 @@ export default function Item(props) {
                                         <ItemImg1
                                             src={item.src}
                                             alt={item.alt}
-                                            style={{
-                                                height: "320px",
-                                                width: "249px",
-                                            }}
                                             onClick={() => {
                                                 navigate(`/Detail/${item.id}`);
                                             }}
@@ -73,8 +69,8 @@ export default function Item(props) {
                             ))}
                     </div>
                 </Swiper>
-                <button className="swiper-item-button-next"></button>
-                <button className="swiper-item-button-prev"></button>
+                <button className="swiper-freq-button-next"></button>
+                <button className="swiper-freq-button-prev"></button>
             </div>
         </RecommendItem>
     );
@@ -91,8 +87,8 @@ const ItemContainer = styled.div`
     height: 320px;
 `;
 const ItemImg1 = styled.img`
-    height: 320px,
-    width: 249px,
+    height: 320px;
+    width: 249px;
 `;
 
 const AddBasket = styled.button`

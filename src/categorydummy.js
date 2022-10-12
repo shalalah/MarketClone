@@ -1,4 +1,4 @@
-export const categorydummy = [
+export const CategoryDummy = [
     {
         id: "0",
         title: "채소",

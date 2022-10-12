@@ -38,8 +38,8 @@
     z-index: 1;
     left: 80%;
 }
-.swiper-container > .swiper-button-prev,
-.swiper-container > .swiper-button-next {
+.swiper-container > .swiper-button-prev::after,
+.swiper-container > .swiper-button-next::after {
     display: none;
 }
 .swiper-container:hover .swiper-button-prev {

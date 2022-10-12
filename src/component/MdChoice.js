@@ -1,29 +1,33 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { categorydummy } from "../categorydummy";
+import { CategoryDummy } from "../CategoryDummy";
 import "../css/choice.css";
 
 import Item from "./Item";
 import MDSwiper from "./MDSwiper";
 
 export default function MdChoice(props) {
+    const category = CategoryDummy;
     const [btnActive, setBtnActive] = useState("");
 
     const toggleActive = (e) => {
         setBtnActive((prev) => {
+            // console.log(e.target.value);
             return e.target.value;
         });
     };
 
     return (
         <MdChoices>
-            <MdCategoryList>
+            <div className="MdCategoryList">
                 <MDCategory>
-                    {categorydummy.map((item, index) => (
+                    {category.map((item, index) => (
                         <button
                             key={item.id}
                             className={
-                                index == btnActive ? "CatBtnSelect" : "CatBtn"
+                                item.id === btnActive
+                                    ? "CatBtnSelect"
+                                    : "CatBtn"
                             }
                             onClick={toggleActive}
                             value={index}
@@ -32,19 +36,28 @@ export default function MdChoice(props) {
                         </button>
                     ))}
                 </MDCategory>
-            </MdCategoryList>
-            {btnActive ? <MDSwiper /> : <Item dummy={props.dummy} />}
+            </div>
+            {btnActive ? (
+                <MDSwiper btnActive={btnActive} MDdummy={props.MDdummy} />
+            ) : (
+                <Item dummy={props.dummy} />
+            )}
             <MoreList>
                 <Cat1>생수·음료·우유·커피 전체보기</Cat1>
             </MoreList>
         </MdChoices>
     );
 }
-const MdChoices = styled.div``;
-const MdCategoryList = styled.div`
-    width: 1050px;
-    margin: 0px auto;
+const MdChoices = styled.div`
+    .MdCategoryList {
+        width: 1050px;
+        margin: 0px auto;
+    }
 `;
+// const MdCategoryList = styled.div`
+//     width: 1050px;
+//     margin: 0px auto;
+// `;
 const MDCategory = styled.div`
     display: flex;
     flex-wrap: wrap;

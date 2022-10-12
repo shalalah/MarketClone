@@ -1,14 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import ProductDetail from "../component/ProductDetail";
+import { useParams } from "react-router-dom";
+
+import ProductDetail from "../component/detail/ProductDetail";
 import { dummy } from "../dummy";
+import { MDdummy } from "../RecommendDummy";
 
 export default function Detail() {
+    const { id } = useParams();
+    // console.log(id);
     return (
         <DetailPage>
-            상세페이지
             <ProductDetailPage>
-                <ProductDetail dummy={dummy} />
+                {id < 100 ? (
+                    <ProductDetail dummy={dummy} id={id} />
+                ) : (
+                    <ProductDetail dummy={MDdummy} id={id} />
+                )}
             </ProductDetailPage>
         </DetailPage>
     );

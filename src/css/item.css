@@ -7,7 +7,11 @@
 .recommend_items .swiper-container {
     margin-right: -9px;
 }
-.swiper-button-prev {
+.swiper-item-button-prev,
+.swiper-MDbutton-prev,
+.swiper-freq-button-prev {
+    position: absolute;
+    top: 185px;
     display: block;
     background: url(../assets/buttons/prev_btn.svg) 50% 50% no-repeat;
     width: 60px;
@@ -19,7 +23,11 @@
     position: absolute;
     z-index: 100;
 }
-.swiper-button-next {
+.swiper-item-button-next,
+.swiper-MDbutton-next,
+.swiper-freq-button-next {
+    position: absolute;
+    bottom: 172px;
     display: block;
     background: url(../assets/buttons/post_btn.svg) 50% 50% no-repeat;
     width: 60px;
@@ -30,7 +38,11 @@
     position: absolute;
     z-index: 100;
 }
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.swiper-item-button-next::after,
+.swiper-item-button-prev::after,
+.swiper-MDbutton-next::after,
+.swiper-MDbutton-prev::after,
+.swiper-freq-button-next::after,
+.swiper-freq-button-prev::after {
     display: none;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 import Logo from "../assets/Header/logo.svg";
@@ -11,6 +11,7 @@ import LikeIcon from "../assets/Header/like_icon.svg";
 import "../css/header.css";
 
 export default function Header() {
+    const [keyword, setKeyword] = useState("");
     return (
         <div className="Header">
             <div className="small_pop_up">
@@ -48,7 +49,13 @@ export default function Header() {
                     </div>
                     <div className="search_wrap">
                         <div className="find_input">
-                            <input placeholder="검색어를 입력해주세요" />
+                            <input
+                                placeholder="검색어를 입력해주세요"
+                                value={keyword}
+                                onChange={(e) => {
+                                    setKeyword(e.target.value);
+                                }}
+                            />
                         </div>
                         <div className="find_icon">
                             <img src={FindIcon} alt="찾기 아이콘" />

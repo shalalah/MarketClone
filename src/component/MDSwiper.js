@@ -1,16 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-import { MDdummy } from "../recommenddummy";
+// import { MDdummy } from "../RecommendDummy";
 import styled from "styled-components";
 import "../css/item.css";
 import BasketIcon from "../assets/items/basket_icon.svg";
 
-export default function MDSwiper() {
+export default function MDSwiper(props) {
+    const navigate = useNavigate();
+
+    const MDdummy = props.MDdummy;
+    // console.log(props.btnActive);
+
     return (
         <MDChoiceSwiper>
             <div className="recommend_items">
@@ -22,8 +27,8 @@ export default function MDSwiper() {
                     loopFillGroupWithBlank={true}
                     navigation={{
                         clickable: true,
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
+                        nextEl: ".swiper-MDbutton-next",
+                        prevEl: ".swiper-MDbutton-prev",
                     }}
                     modules={[Navigation]}
                     className="swiper-container"
@@ -31,24 +36,24 @@ export default function MDSwiper() {
                     <div className="swiper-wrapper">
                         {MDdummy.map((item, index) => (
                             <SwiperSlide key={item.id}>
-                                <ItemImg1>
-                                    <Link to="/Detail">
-                                        <img
-                                            src={item.src}
-                                            alt={item.alt}
-                                            style={{
-                                                height: "320px",
-                                                width: "249px",
-                                            }}
-                                        />
-                                    </Link>
+                                <ItemContainer>
+                                    <ItemImg1
+                                        src={item.src}
+                                        alt={item.alt}
+                                        onClick={() => {
+                                            navigate(`/Detail/${item.id}`);
+                                        }}
+                                    />
                                     <AddBasket>
                                         <img
                                             src={BasketIcon}
                                             alt="장바구니 추가"
+                                            onClick={() => {
+                                                alert("장바구니");
+                                            }}
                                         />
                                     </AddBasket>
-                                </ItemImg1>
+                                </ItemContainer>
                                 <ItemInfo>
                                     <ItemName>{item.title}</ItemName>
                                     <InfoDetail>
@@ -64,8 +69,8 @@ export default function MDSwiper() {
                         ))}
                     </div>
                 </Swiper>
-                <button className="swiper-button-next"></button>
-                <button className="swiper-button-prev"></button>
+                <button className="swiper-MDbutton-next"></button>
+                <button className="swiper-MDbutton-prev"></button>
             </div>
         </MDChoiceSwiper>
     );
@@ -75,11 +80,15 @@ const MDChoiceSwiper = styled.div`
     margin: 0px auto;
     margin-left: auto;
 `;
-const ItemImg1 = styled.div`
+const ItemContainer = styled.div`
     display: flex;
     position: relative;
     width: 249px;
     height: 320px;
+`;
+const ItemImg1 = styled.img`
+    height: 320px;
+    width: 249px;
 `;
 
 const AddBasket = styled.button`

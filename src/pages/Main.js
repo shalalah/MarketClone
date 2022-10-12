@@ -1,24 +1,25 @@
-import React from "react";
+// import React, { useEffect } from "react";
 import styled from "styled-components";
-// import SwiperTitle from "../component/SwiperTitle";
 import Item from "../component/Item";
 import MainTopBanner from "../component/MainTopBanner";
 import SpecialDeal from "../component/SpecialDeal";
 import MdChoice from "../component/MdChoice";
+import FreqItems from "../component/FreqItems";
 import LineBanner1 from "../assets/banner/line_banner_1.jpeg";
 
 import { dummy } from "../dummy";
+import { MDdummy } from "../RecommendDummy";
 
 export default function Main() {
     return (
         <div className="Main-container">
             <MainTopBanner />
             <SwiperTitleWrap>
-                <RecommendTitle>
+                <div className="RecommendTitle">
                     <RecommendQ>
-                        <ProductQ>이 상품 어때요?</ProductQ>
+                        <span className="ProductQ">이 상품 어때요?</span>
                     </RecommendQ>
-                </RecommendTitle>
+                </div>
             </SwiperTitleWrap>
             <Item dummy={dummy} />
             <LineBanner>
@@ -26,22 +27,22 @@ export default function Main() {
             </LineBanner>
             <SpecialDeal />
             <SwiperTitleWrap>
-                <RecommendTitle>
+                <div className="RecommendTitle">
                     <RecommendQ>
-                        <ProductQ>냉장고 속 단골 재료</ProductQ>
+                        <span className="ProductQ">냉장고 속 단골 재료</span>
                     </RecommendQ>
                     <SubQ>평일 냉장고를 부탁해</SubQ>
-                </RecommendTitle>
+                </div>
             </SwiperTitleWrap>
-            <Item dummy={dummy} />
+            <FreqItems dummy={dummy} />
             <SwiperTitleWrap>
-                <RecommendTitle>
+                <div className="RecommendTitle">
                     <RecommendQ>
-                        <ProductQ>MD의 추천</ProductQ>
+                        <span className="ProductQ">MD의 추천</span>
                     </RecommendQ>
-                </RecommendTitle>
+                </div>
             </SwiperTitleWrap>
-            <MdChoice dummy={dummy} />
+            <MdChoice dummy={dummy} MDdummy={MDdummy} />
         </div>
     );
 }
@@ -58,26 +59,26 @@ const LineBannerImg = styled.img`
 const SwiperTitleWrap = styled.div`
     padding-top: 40px;
     margin-bottom: 27px;
-`;
-const RecommendTitle = styled.div`
-    margin-bottom: 27px;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
+    .RecommendTitle {
+        margin-bottom: 27px;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
 `;
 const RecommendQ = styled.div`
     position: relative;
     display: flex;
     padding: 8px 0px 8px 8px;
-`;
-const ProductQ = styled.span`
-    color: rgb(51, 51, 51);
-    font-size: 28px;
-    line-height: 1.15;
-    font-weight: 500;
+    .ProductQ {
+        color: rgb(51, 51, 51);
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 500;
+    }
 `;
 const SubQ = styled.p`
     font-size: 16px;
