@@ -85,14 +85,16 @@ export default function ProductDetail(props) {
                         <dt className="detail-info-title">판매단위</dt>
                         <dd className="detail-info-wrap">
                             <p className="detail-info-name">
-                                {product.package}
+                                {product.package_unit}
                             </p>
                         </dd>
                     </dl>
                     <dl className="detail-info-container">
                         <dt className="detail-info-title">중량/용량</dt>
                         <dd className="detail-info-wrap">
-                            <p className="detail-info-name">상세페이지 참고</p>
+                            <p className="detail-info-name">
+                                상세페이지 별도표기
+                            </p>
                         </dd>
                     </dl>
                     <dl className="detail-info-container">
