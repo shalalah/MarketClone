@@ -91,8 +91,13 @@ const ItemContainer = styled.div`
     height: 320px;
 `;
 const ItemImg1 = styled.img`
-    height: 320px,
-    width: 249px,
+    height: 320px;
+    width: 249px;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.02);
+        transition: 0.3s;
+    }
 `;
 
 const AddBasket = styled.button`
@@ -101,6 +106,7 @@ const AddBasket = styled.button`
     right: 5px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 `;
 const ItemInfo = styled.div`
     position: relative;

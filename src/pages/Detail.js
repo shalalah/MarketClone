@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
 import ProductDetail from "../component/detail/ProductDetail";
+import MidNav from "../component/detail/MidNav";
+import DetailInfos from "../component/detail/DetailInfos";
+
 import { dummy } from "../dummy";
 import { MDdummy } from "../RecommendDummy";
 
@@ -17,6 +20,8 @@ export default function Detail() {
                 ) : (
                     <ProductDetail dummy={MDdummy} id={id} />
                 )}
+                <MidNav />
+                <DetailInfos />
             </ProductDetailPage>
         </DetailPage>
     );
