@@ -6,18 +6,19 @@ import styled from "styled-components";
 
 export default function MidNav() {
     const [click, setClick] = useState(0);
-    const [prevClick, setPrevClick] = useState(0);
+    // const [prevClick, setPrevClick] = useState(0);
+
+    // useEffect(() => {
+    //     // if (click !== 0) {
+    //     //     console.log(click);
+    //     // }
+    //     setPrevClick(click);
+    // }, [click]);
 
     const activeBtn = (i) => {
         // console.log(i);
         setClick(i);
     };
-    useEffect(() => {
-        // if (click !== 0) {
-        //     console.log(click);
-        // }
-        setPrevClick(click);
-    }, [click]);
 
     return (
         <MidNavContainer>
