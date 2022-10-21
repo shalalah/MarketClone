@@ -5,6 +5,11 @@ import Item5 from "./assets/items/recommend5.avif";
 import Item6 from "./assets/items/recommend6.avif";
 import Item7 from "./assets/items/recommend7.avif";
 import Item8 from "./assets/items/recommend8.avif";
+import Item3Point from "./assets/items/point-pic.webp";
+import Detail3Pics from "./assets/items/item_detail_pics.webp";
+
+// DetailInfos 이미지
+import itemDetailImg from "./assets/items/item1-detail-pic.jpeg";
 
 export const dummy = [
     {
@@ -72,6 +77,17 @@ export const dummy = [
         package_unit: "1 팩",
         allergy:
             " - 계란, 대두, 밀, 게, 새우, 돼지고기, 토마토, 쇠고기, 오징어, 조개류(굴, 홍합 포함) 함유 - 우유, 메밀, 땅콩, 고등어, 복숭아, 닭고기, 아황산류, 호두, 잣, 조개류(전복)을 사용한 제품과 같은 제조시설에서 제조",
+        detail_img: itemDetailImg,
+        detail_info_context: `국물 떡볶이집의 원조, 미미네를 모르면 진정한 떡볶이 마니아라고 할 수 없어요. 
+        쫄깃하면서도 촉촉한 식감을 유지하는 찰 밀떡과 진한 국물 맛을 살려주는 부산 어묵, 떡과 어묵을 넉넉하게 재우는
+        풍성한 떡볶이 국물의 조화는 신기하리만큼 중독적이죠. 홍대 맛집으로 이름나기 시작해 어느덧, 백화점으로까지 당당히 
+        입점한 미미네 국물 떡볶이가 드디어, 간편식으로 나왔답니다. 매장 레시피를 그대로 담아냈으니 집에서도 '그 맛'을
+        똑같이 즐길 수 있어요. 고추장 베이스로 입맛 돋우는 살짝 매콤한 풍미에 깔끔하고도 부드러운 감칠맛. 
+        양은 2~3명이 즐길 수 있을 정도로 넉넉해요. 떡과 어묵, 소스까지 완벽히 구성돼 있으니 기호에 맞게 쫑쫑 썬 
+        대파와 채소, 당면 사리 등의 토핑을 추가해도 좋겠죠. 조금 더 품을 내어 바삭한 튀김까지 튀겨낸다면, 
+        그리고 이를 떡볶이 국물에다 폭 찍어 먹는다면 세상 별미가 따로 없답니다.`,
+        point_src: Item3Point,
+        detail_pics: Detail3Pics,
     },
     {
         id: "4",

@@ -21,7 +21,11 @@ export default function Detail() {
                     <ProductDetail dummy={MDdummy} id={id} />
                 )}
                 <MidNav />
-                <DetailInfos />
+                {id < 100 ? (
+                    <DetailInfos dummy={dummy} id={id} />
+                ) : (
+                    <DetailInfos dummy={MDdummy} id={id} />
+                )}
             </ProductDetailPage>
         </DetailPage>
     );

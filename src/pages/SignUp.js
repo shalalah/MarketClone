@@ -1,5 +1,5 @@
-import React from "react";
+// import React, { useState } from "react";
 
 export default function SignUp() {
-    return <div className="SignUp">회원가입 페이지입니다.</div>;
+    return <div>회원가입페이지</div>;
 }
