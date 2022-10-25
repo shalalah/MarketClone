@@ -43,11 +43,11 @@
     font-size: 12px;
     color: #333;
 }
-.sign_wrap .sign_up {
+.sign_wrap .sign_up_ {
     color: rgb(95, 0, 128);
     cursor: pointer;
 }
-.sign_wrap .sign_up::after {
+.sign_wrap .sign_up_::after {
     background-color: rgb(217, 217, 217);
     content: "";
     position: absolute;

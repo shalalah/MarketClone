@@ -20,7 +20,7 @@ export default function Header() {
             <div className="header-container">
                 <div className="header_wrap">
                     <div className="sign_wrap">
-                        <Link to="/SignUp" className="sign_up">
+                        <Link to="/SignUp" className="sign_up_">
                             회원가입
                         </Link>
                         <Link to="/LogIn" className="login">
