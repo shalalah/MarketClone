@@ -1,9 +1,17 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 
+import { useDispatch } from "react-redux";
+import { signupFB } from "../modules/user";
+// import { actionCreators as userActions } from "../modules/user";
+
 import "../css/signup.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -12,14 +20,18 @@ export default function SignUp() {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-        // 추후 axios 서버통신
+        // console.log(data);
+        // firebase
+        dispatch(signupFB(data.id, data.password, data.name));
+        alert("회원가입이 완료되었습니다.");
+        navigate("/Login");
     };
     // your form submit function which will invoke after successful validation
 
     const password = useRef();
     password.current = watch("password");
     // console.log(watch("name"));
+
     return (
         <div className="sign_up">
             <div className="signUpTitle">회원가입</div>
@@ -30,13 +42,13 @@ export default function SignUp() {
                         name="id"
                         type="email"
                         placeholder="아이디를 이메일 형식으로 입력해주세요"
-                        {...register("idRequired", {
+                        {...register("id", {
                             required: true,
                             pattern: /^\S+@\S+$/i,
                         })}
                     />
                 </div>
-                {errors.idRequired && errors.idRequired.type === "required" && (
+                {errors.id && errors.id.type === "required" && (
                     <p> 아이디를 입력해주세요</p>
                 )}
                 <div className="labelContainer">

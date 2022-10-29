@@ -10,22 +10,45 @@ import LikeIcon from "../assets/Header/like_icon.svg";
 
 import "../css/header.css";
 
-export default function Header() {
+import { useDispatch } from "react-redux";
+import { LogoutFB } from "../modules/user";
+
+export default function Header({ is_login }) {
+    const dispatch = useDispatch();
+
     const [keyword, setKeyword] = useState("");
+
+    // console.log(is_login);
+
     return (
         <div className="Header">
-            <div className="small_pop_up">
-                지금 가입하고 인기상품 100원에 받아가세요
-            </div>
+            {is_login ? null : (
+                <div className="small_pop_up">
+                    지금 가입하고 인기상품 100원에 받아가세요
+                </div>
+            )}
             <div className="header-container">
                 <div className="header_wrap">
                     <div className="sign_wrap">
-                        <Link to="/SignUp" className="sign_up_">
-                            회원가입
-                        </Link>
-                        <Link to="/LogIn" className="login">
-                            로그인
-                        </Link>
+                        {is_login ? (
+                            <button
+                                className="logout"
+                                onClick={() => {
+                                    dispatch(LogoutFB());
+                                }}
+                            >
+                                로그아웃
+                            </button>
+                        ) : (
+                            <div>
+                                <Link to="/SignUp" className="sign_up_">
+                                    회원가입
+                                </Link>
+                                <Link to="/LogIn" className="login">
+                                    로그인
+                                </Link>
+                            </div>
+                        )}
                         <div className="center">
                             <Link to="/Question" className="question">
                                 고객센터

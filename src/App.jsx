@@ -10,20 +10,28 @@ import Detail from "./pages/Detail";
 import ProductDetail from "./component/detail/ProductDetail";
 import Footer from "./component/Footer";
 import BestItem from "./component/category/BestItem";
+import NotFound from "./pages/NotFound";
+
+//로그인
+import { useSelector } from "react-redux";
 
 function App() {
+    //로그인
+    const is_login = useSelector((state) => state.user.is_login);
+
     return (
         <div className="App">
-            <Header />
+            <Header is_login={is_login} />
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/BestItem" element={<BestItem />}></Route>
+                <Route path="/BestItem" element={<BestItem />} />
                 <Route path="/SignUp/*" element={<SignUp />} />
                 <Route path="/LogIn/*" element={<LogIn />} />
                 <Route path="/Detail/*" element={<Detail />}>
                     <Route path=":id" element={<ProductDetail />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </div>
