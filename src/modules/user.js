@@ -1,23 +1,13 @@
-// import axios from "axios";
-import { auth, db } from "./Firebase";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./Firebase";
 import {
-    signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut,
+    updateProfile,
 } from "firebase/auth";
-// import {
-//     collection,
-//     doc,
-//     getDocs,
-//     addDoc,
-//     updateDoc,
-//     deleteDoc,
-//     where,
-//     query,
-// } from "firebase/firestore";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+// 액션타입
 const JOIN = "user/JOIN";
 const LOG_IN = "user/LOG_IN";
 const LOG_OUT = "user/LOG_OUT";
@@ -28,8 +18,9 @@ const initialState = {
     is_login: false,
 };
 
-export const Login = (user_name, user_id) => {
-    return { type: LOG_IN, user_name, user_id };
+//액션 생성 함수
+export const Login = (user_name, user_id, is_login) => {
+    return { type: LOG_IN, user_name, user_id, is_login };
 };
 export const Logout = (user) => {
     return { type: LOG_OUT, user };
@@ -40,14 +31,18 @@ export const Join = (user) => {
 };
 
 // middlewares
-export const LoginFB = (id, pw, user_name) => {
+
+export const LoginFB = (id, pw) => {
     return async function (dispatch) {
         await signInWithEmailAndPassword(auth, id, pw)
             .then((userCredential) => {
                 // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                dispatch(Login(user_name, id));
+                const user = userCredential.user.displayName;
+                // console.log(user);
+                onAuthStateChanged(auth, (users) => {
+                    // console.log(users.displayName);
+                });
+                dispatch(Login(user, id));
             })
             .catch((error) => {
                 if (error.code === "auth/invalid-email") {
@@ -62,22 +57,28 @@ export const LoginFB = (id, pw, user_name) => {
 };
 export const LogoutFB = () => {
     return async function (dispatch) {
-        console.log(auth.currentUser);
+        // console.log(auth.currentUser);
         auth.signOut()
             .then(() => {
                 dispatch(Logout());
+                alert("로그아웃 처리되었습니다.");
             })
             .catch((error) => {
                 // An error happened.
+                console.log(error);
             });
     };
 };
 //회원가입
 export const signupFB = (id, pwd, user_name) => {
     return async function (dispatch) {
-        await createUserWithEmailAndPassword(auth, id, pwd)
-            .then((userCredential) => {
-                console.log(userCredential);
+        await createUserWithEmailAndPassword(auth, id, pwd, user_name)
+            .then(async (userCredential) => {
+                // console.log(userCredential.user);
+                await updateProfile(auth.currentUser, {
+                    displayName: user_name,
+                });
+                dispatch(Login(user_name, id));
             })
             .catch((error) => {
                 let errorCode = error.code;
@@ -86,40 +87,6 @@ export const signupFB = (id, pwd, user_name) => {
             });
     };
 };
-
-//middleware actions
-
-//리듀서
-// export default handleActions(
-//     {
-//         [SET_USER]: (state, action) =>
-//             produce(state, (draft) => {
-//                 // setCookie("is_login","success");
-//                 draft.user = action.payload.user;
-//                 draft.is_login = true;
-//             }),
-//         [LOG_OUT]: (state, action) =>
-//             produce(state, (draft) => {
-//                 // deleteCookie("is_login");
-//                 draft.user = null;
-//                 draft.is_login = false;
-//             }),
-//         [GET_USER]: (state, action) => produce(state, (draft) => {}),
-//     },
-//     initialState
-// );
-// //action creators export
-// const actionCreators ={
-//     logOut,
-//     getUser,
-//     loginAction,
-//     signupFB,
-// };
-// const actionCreators = {
-//     signupFB,
-// };
-
-// export { actionCreators };
 
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {

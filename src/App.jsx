@@ -18,16 +18,22 @@ import { useSelector } from "react-redux";
 function App() {
     //로그인
     const is_login = useSelector((state) => state.user.is_login);
+    // console.log(is_login);
+    const nick = useSelector((state) => state.user.name);
+    // console.log(nick);
 
     return (
         <div className="App">
-            <Header is_login={is_login} />
+            <Header is_login={is_login} nick={nick} />
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/BestItem" element={<BestItem />} />
                 <Route path="/SignUp/*" element={<SignUp />} />
-                <Route path="/LogIn/*" element={<LogIn />} />
+                <Route
+                    path="/LogIn/*"
+                    element={<LogIn is_login={is_login} />}
+                />
                 <Route path="/Detail/*" element={<Detail />}>
                     <Route path=":id" element={<ProductDetail />} />
                 </Route>

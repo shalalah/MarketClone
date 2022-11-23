@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+
 import { useForm } from "react-hook-form";
 
 import { useDispatch } from "react-redux";
@@ -6,7 +7,7 @@ import { signupFB } from "../modules/user";
 // import { actionCreators as userActions } from "../modules/user";
 
 import "../css/signup.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
     const dispatch = useDispatch();

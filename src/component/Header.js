@@ -13,7 +13,7 @@ import "../css/header.css";
 import { useDispatch } from "react-redux";
 import { LogoutFB } from "../modules/user";
 
-export default function Header({ is_login }) {
+export default function Header({ is_login, nick }) {
     const dispatch = useDispatch();
 
     const [keyword, setKeyword] = useState("");
@@ -37,7 +37,7 @@ export default function Header({ is_login }) {
                                     dispatch(LogoutFB());
                                 }}
                             >
-                                로그아웃
+                                {nick}님, 로그아웃
                             </button>
                         ) : (
                             <div>
