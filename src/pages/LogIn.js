@@ -10,6 +10,7 @@ export default function LogIn({ is_login }) {
 
     useEffect(() => {
         is_login && navigate("/");
+        // console.log(is_login);
     }, [is_login]);
 
     return (

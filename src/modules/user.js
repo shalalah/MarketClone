@@ -4,6 +4,8 @@ import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     updateProfile,
+    setPersistence,
+    browserSessionPersistence,
 } from "firebase/auth";
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -34,27 +36,30 @@ export const Join = (user) => {
 
 export const LoginFB = (id, pw) => {
     return async function (dispatch) {
-        await signInWithEmailAndPassword(auth, id, pw)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user.displayName;
-                // console.log(user);
-                onAuthStateChanged(auth, (users) => {
-                    // console.log(users.displayName);
+        await setPersistence(auth, browserSessionPersistence).then(() => {
+            signInWithEmailAndPassword(auth, id, pw)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user.displayName;
+                    // console.log(user);
+                    // onAuthStateChanged(auth, (users) => {
+                    //     // console.log(users.displayName);
+                    // });
+                    dispatch(Login(user, id));
+                })
+                .catch((error) => {
+                    if (error.code === "auth/invalid-email") {
+                        alert("아이디를 이메일 형식으로 입력해주세요");
+                    } else if (error.code === "auth/user-not-found") {
+                        alert("존재하는 아이디가 없습니다.");
+                    } else if (error.code === "auth/wrong-password") {
+                        alert("비밀번호가 일치하지 않습니다.");
+                    }
                 });
-                dispatch(Login(user, id));
-            })
-            .catch((error) => {
-                if (error.code === "auth/invalid-email") {
-                    alert("아이디를 이메일 형식으로 입력해주세요");
-                } else if (error.code === "auth/user-not-found") {
-                    alert("존재하는 아이디가 없습니다.");
-                } else if (error.code === "auth/wrong-password") {
-                    alert("비밀번호가 일치하지 않습니다.");
-                }
-            });
+        });
     };
 };
+
 export const LogoutFB = () => {
     return async function (dispatch) {
         // console.log(auth.currentUser);
@@ -85,6 +90,20 @@ export const signupFB = (id, pwd, user_name) => {
                 let errorMessage = error.message;
                 console.log(errorCode, errorMessage);
             });
+    };
+};
+
+//로그인 체크
+export const logInCheckFB = () => {
+    return async function (dispatch) {
+        onAuthStateChanged(auth, (users) => {
+            if (users) {
+                console.log(users);
+                dispatch(Login(users.displayName, users.email));
+            } else {
+                dispatch(Logout());
+            }
+        });
     };
 };
 

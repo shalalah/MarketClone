@@ -19,12 +19,12 @@ function App() {
     //로그인
     const is_login = useSelector((state) => state.user.is_login);
     // console.log(is_login);
+
     const nick = useSelector((state) => state.user.name);
-    // console.log(nick);
 
     return (
         <div className="App">
-            <Header is_login={is_login} nick={nick} />
+            <Header nick={nick} />
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />
