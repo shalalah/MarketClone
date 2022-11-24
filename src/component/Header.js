@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 import Logo from "../assets/Header/logo.svg";
@@ -11,26 +11,17 @@ import LikeIcon from "../assets/Header/like_icon.svg";
 import "../css/header.css";
 
 import { useDispatch } from "react-redux";
-import { LogoutFB, logInCheckFB } from "../modules/user";
+import { LogoutFB } from "../modules/user";
 
-import { apiKey } from "../modules/Firebase";
+// import { apiKey } from "../modules/Firebase";
 
-export default function Header({ nick }) {
+export default function Header({ is_login, nick }) {
     const dispatch = useDispatch();
     const [keyword, setKeyword] = useState("");
-    //log-in
-    const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
-    const is_session = sessionStorage.getItem(_session_key);
-
-    useEffect(() => {
-        if (is_session) {
-            dispatch(logInCheckFB());
-        }
-    }, [is_session]);
 
     return (
         <div className="Header">
-            {is_session ? null : (
+            {is_login ? null : (
                 <div className="small_pop_up">
                     지금 가입하고 인기상품 100원에 받아가세요
                 </div>
@@ -38,7 +29,7 @@ export default function Header({ nick }) {
             <div className="header-container">
                 <div className="header_wrap">
                     <div className="sign_wrap">
-                        {is_session ? (
+                        {is_login ? (
                             <button
                                 className="logout"
                                 onClick={() => {

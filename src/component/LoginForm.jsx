@@ -19,6 +19,7 @@ export default function LoginForm() {
     const onSubmit = async (data) => {
         // console.log(data);
         dispatch(LoginFB(data.id, data.password, data.name));
+        navigate("/");
     };
 
     return (

@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 import { Route, Routes } from "react-router-dom";
 // import styled from "styled-components";
 import "./App.css";
@@ -13,18 +15,31 @@ import BestItem from "./component/category/BestItem";
 import NotFound from "./pages/NotFound";
 
 //로그인
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logInCheckFB } from "./modules/user";
+import { apiKey } from "./modules/Firebase";
 
 function App() {
     //로그인
+    const dispatch = useDispatch();
     const is_login = useSelector((state) => state.user.is_login);
     // console.log(is_login);
-
     const nick = useSelector((state) => state.user.name);
+
+    const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
+    const is_session = sessionStorage.getItem(_session_key);
+
+    useEffect(() => {
+        if (is_session) {
+            dispatch(logInCheckFB());
+            console.log(is_login);
+        }
+    }, []);
+    // const nick = useSelector((state) => state.user.name);
 
     return (
         <div className="App">
-            <Header nick={nick} />
+            <Header is_login={is_login} nick={nick} />
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />

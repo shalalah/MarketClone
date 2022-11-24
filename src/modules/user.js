@@ -76,14 +76,14 @@ export const LogoutFB = () => {
 };
 //회원가입
 export const signupFB = (id, pwd, user_name) => {
-    return async function (dispatch) {
+    return async function () {
         await createUserWithEmailAndPassword(auth, id, pwd, user_name)
             .then(async (userCredential) => {
                 // console.log(userCredential.user);
                 await updateProfile(auth.currentUser, {
                     displayName: user_name,
                 });
-                dispatch(Login(user_name, id));
+                // dispatch(Login(user_name, id));
             })
             .catch((error) => {
                 let errorCode = error.code;
