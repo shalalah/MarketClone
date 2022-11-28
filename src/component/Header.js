@@ -15,13 +15,13 @@ import { LogoutFB } from "../modules/user";
 
 // import { apiKey } from "../modules/Firebase";
 
-export default function Header({ is_login, nick }) {
+export default function Header({ is_session, nick }) {
     const dispatch = useDispatch();
     const [keyword, setKeyword] = useState("");
 
     return (
         <div className="Header">
-            {is_login ? null : (
+            {is_session ? null : (
                 <div className="small_pop_up">
                     지금 가입하고 인기상품 100원에 받아가세요
                 </div>
@@ -29,7 +29,7 @@ export default function Header({ is_login, nick }) {
             <div className="header-container">
                 <div className="header_wrap">
                     <div className="sign_wrap">
-                        {is_login ? (
+                        {is_session ? (
                             <button
                                 className="logout"
                                 onClick={() => {

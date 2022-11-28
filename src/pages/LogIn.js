@@ -1,7 +1,17 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import LoginForm from "../component/LoginForm";
 
-export default function LogIn() {
+export default function LogIn({ is_login }) {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (is_login === true) {
+            navigate("/");
+        }
+    }, [is_login]);
+
     return (
         <LogInContainer>
             <Title>로그인</Title>

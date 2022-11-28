@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LoginFB } from "../modules/user";
 
-export default function LoginForm() {
+export default function LoginForm({ is_session }) {
     const {
         register,
         handleSubmit,
@@ -19,7 +19,6 @@ export default function LoginForm() {
     const onSubmit = async (data) => {
         // console.log(data);
         dispatch(LoginFB(data.id, data.password, data.name));
-        navigate("/");
     };
 
     return (

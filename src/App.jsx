@@ -32,14 +32,11 @@ function App() {
     useEffect(() => {
         if (is_session) {
             dispatch(logInCheckFB());
-            console.log(is_login);
         }
     }, []);
-    // const nick = useSelector((state) => state.user.name);
-
     return (
         <div className="App">
-            <Header is_login={is_login} nick={nick} />
+            <Header is_session={is_session} nick={nick} />
             <Category />
             <Routes>
                 <Route path="/" element={<Main />} />
