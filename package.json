@@ -26,17 +26,16 @@
         "redux-thunk": "^2.4.1",
         "styled-components": "^5.3.5",
         "swiper": "^8.3.2",
-        "web-vitals": "^2.1.4",
-        "homepage": "https://shalalah.github.io/MarketClone"
+        "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "deploy": "gh-pages -d build",
-        "predeploy": "npm run build"
+        "deploy": "gh-pages -d build"
     },
+    "homepage": "https://shalalah.github.io/MarketClone",
     "eslintConfig": {
         "extends": [
             "react-app",
