@@ -60,7 +60,10 @@ export default function Item(props) {
                                                     {item.discount}
                                                 </Discount>
                                                 <SalePrice>
-                                                    {item.sale_price}
+                                                    {parseInt(
+                                                        item.sale_price
+                                                    ).toLocaleString()}
+                                                    원
                                                 </SalePrice>
                                             </ProductPrice>
                                         </InfoDetail>

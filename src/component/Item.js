@@ -64,7 +64,10 @@ export default function Item(props) {
                                                     {item.discount}
                                                 </Discount>
                                                 <SalePrice>
-                                                    {item.sale_price}
+                                                    {parseInt(
+                                                        item.sale_price
+                                                    ).toLocaleString()}
+                                                    원
                                                 </SalePrice>
                                             </ProductPrice>
                                         </InfoDetail>
@@ -134,6 +137,7 @@ const SalePrice = styled.div`
     font-weight: 800;
     line-height: 1.5;
 `;
+
 const ItemName = styled.h3`
     font-size: 16px;
     line-height: 1.45;
