@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CategoryDummy } from "../CategoryDummy";
+import { CategoryDummy } from "../categorydummy";
 import "../css/choice.css";
 
 import Item from "./Item";

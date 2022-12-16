@@ -39,32 +39,17 @@ function App() {
             <Header is_session={is_session} nick={nick} />
             <Category />
             <Routes>
-                <Route path={process.env.PUBLIC_URL + "/"} element={<Main />} />
+                <Route path="/" element={<Main />} />
+                <Route path="/BestItem" element={<BestItem />} />
+                <Route path="/SignUp/*" element={<SignUp />} />
                 <Route
-                    path={process.env.PUBLIC_URL + "/BestItem"}
-                    element={<BestItem />}
-                />
-                <Route
-                    path={process.env.PUBLIC_URL + "/SignUp/*"}
-                    element={<SignUp />}
-                />
-                <Route
-                    path={process.env.PUBLIC_URL + "/LogIn/*"}
+                    path="/LogIn/*"
                     element={<LogIn is_login={is_login} />}
                 />
-                <Route
-                    path={process.env.PUBLIC_URL + "/Detail/*"}
-                    element={<Detail />}
-                >
-                    <Route
-                        path={process.env.PUBLIC_URL + ":id"}
-                        element={<ProductDetail />}
-                    />
+                <Route path="/Detail/*" element={<Detail />}>
+                    <Route path=":id" element={<ProductDetail />} />
                 </Route>
-                <Route
-                    path={process.env.PUBLIC_URL + "*"}
-                    element={<NotFound />}
-                />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </div>

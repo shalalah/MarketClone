@@ -7,7 +7,7 @@ import MidNav from "../component/detail/MidNav";
 import DetailInfos from "../component/detail/DetailInfos";
 
 import { dummy } from "../dummy";
-import { MDdummy } from "../RecommendDummy";
+import { MDdummy } from "../recommenddummy";
 
 export default function Detail() {
     const { id } = useParams();

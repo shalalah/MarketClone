@@ -8,7 +8,7 @@ import FreqItems from "../component/FreqItems";
 import LineBanner1 from "../assets/banner/line_banner_1.jpeg";
 
 import { dummy } from "../dummy";
-import { MDdummy } from "../RecommendDummy";
+import { MDdummy } from "../recommenddummy";
 
 export default function Main() {
     return (

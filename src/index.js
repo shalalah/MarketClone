@@ -13,7 +13,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // const store = createStore(rootReducer); // 스토어
 root.render(
     <Provider store={store}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter>
+            {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
             <ScrollToTop />
             <App />
         </BrowserRouter>
